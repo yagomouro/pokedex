@@ -1,8 +1,12 @@
 import { PokemonList } from "./components/PokemonList";
+import { GlobalStyle } from "./styles/global";
 
 function App() {
   return (
-    <PokemonList></PokemonList>
+    <>
+      <PokemonList />
+      <GlobalStyle />
+    </>
   );
 }
 
