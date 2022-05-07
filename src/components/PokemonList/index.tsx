@@ -3,7 +3,7 @@ import api from "../../services/api"
 import PokemonCard from "./PokemonCard"
 import { IResults } from "../../types/IResults"
 import Button from "./Button"
-import { PokedexContainer } from "./styles"
+import { PokedexContainer, CardContainer } from "./styles"
 
 export function PokemonList(): JSX.Element {
 
@@ -36,12 +36,14 @@ export function PokemonList(): JSX.Element {
 
 
         <PokedexContainer>
-            {allPokemons.results.map((pokemon, index) => (
-                <PokemonCard
-                    key={index.toString()}
-                    {...pokemon}
-                />
-            ))}
+            <CardContainer>
+                {allPokemons.results.map((pokemon, index) => (
+                    <PokemonCard
+                        key={index.toString()}
+                        {...pokemon}
+                    />
+                ))}
+            </CardContainer>
 
             <div
                 style={{
