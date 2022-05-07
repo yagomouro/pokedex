@@ -23,6 +23,10 @@ html{
     font-size: 62.5%;
 
     scroll-behavior: smooth;
+    background-image: url("https://raw.githubusercontent.com/yagomouro/pokedex/master/src/assets/pokemon_wallpaper.jpg");
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
 }
 
 body{

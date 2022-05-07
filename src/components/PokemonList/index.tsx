@@ -3,7 +3,8 @@ import api from "../../services/api"
 import PokemonCard from "./PokemonCard"
 import { IResults } from "../../types/IResults"
 import Button from "./Button"
-import { PokedexContainer, CardContainer } from "./styles"
+import { PokedexContainer, CardContainer, ButtonContainer, PokemonInfo, ButtonWrapper } from "./styles"
+import SvgPokedex from "./Svg"
 
 export function PokemonList(): JSX.Element {
 
@@ -36,34 +37,30 @@ export function PokemonList(): JSX.Element {
 
 
         <PokedexContainer>
-            <CardContainer>
-                {allPokemons.results.map((pokemon, index) => (
-                    <PokemonCard
-                        key={index.toString()}
-                        {...pokemon}
-                    />
-                ))}
-            </CardContainer>
-
-            <div
-                style={{
-                    justifyContent: "center",
-                    gap: '20px',
-                    alignItems: "center",
-                    height: "40px",
-                    display: "flex"
-                }}
-            >
-                <Button
-                    title="Voltar"
-                    onClick={decrementOffset}
-                />
-                <p>{offset}</p>
-                <Button
-                    title="Avançar"
-                    onClick={incrementOffset}
-                />
-            </div>
+            <SvgPokedex />
+            <PokemonInfo>
+                <CardContainer>
+                    {allPokemons.results.map((pokemon, index) => (
+                        <PokemonCard
+                            key={index.toString()}
+                            {...pokemon}
+                        />
+                    ))}
+                </CardContainer>
+                <ButtonContainer>
+                    <p>Nº {offset}</p>
+                    <ButtonWrapper>
+                        <Button
+                            title=""
+                            onClick={decrementOffset}
+                        />
+                        <Button
+                            title=""
+                            onClick={incrementOffset}
+                        />
+                    </ButtonWrapper>
+                </ButtonContainer>
+            </PokemonInfo>
         </PokedexContainer>
 
     )

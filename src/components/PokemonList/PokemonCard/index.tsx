@@ -4,7 +4,7 @@ import { POKEMON } from "../../../constants/pokemon";
 import api from "../../../services/api";
 import { IPokemon } from "../../../types/IPokemon";
 import { IPokemonData } from "../../../types/IResults";
-import { PokemonWrapper } from "./styles";
+import { DataType, DataWrapper, PokemonData, PokemonImage, PokemonWrapper } from "./styles";
 
 export default function PokemonCard({ url }: IPokemonData) {
     const [pokemon, setPokemon] = useState<IPokemon>(POKEMON)
@@ -22,11 +22,20 @@ export default function PokemonCard({ url }: IPokemonData) {
         getPokemon()
     }, [getPokemon])
 
+    const capitalizeFirstLetter = (name: string) => {
+        return name.charAt(0).toUpperCase() + name.slice(1)
+    }
+
     return (
         <PokemonWrapper>
-            <img src={pokemon?.sprites?.front_default} alt={pokemon?.name} /> <br />
-            <span>Name: {pokemon?.name}</span><br />
-            <span>Type: {pokemon?.types[0]?.type?.name}</span>
+            <PokemonImage src={pokemon?.sprites?.front_default} alt={pokemon?.name} />
+            <DataWrapper>
+                <PokemonData>{capitalizeFirstLetter(pokemon?.name)}</PokemonData>
+                <DataType>
+                    <PokemonData>{capitalizeFirstLetter(pokemon?.types[0]?.type?.name)}</PokemonData>
+                    <PokemonData>{pokemon?.types[1] ? capitalizeFirstLetter(pokemon?.types[1]?.type?.name) : "--"}</PokemonData>
+                </DataType>
+            </DataWrapper>
         </PokemonWrapper>
 
     )

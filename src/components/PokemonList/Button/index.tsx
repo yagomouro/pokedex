@@ -1,4 +1,5 @@
 import React, { ButtonHTMLAttributes } from "react"
+import { ChangePokemonButton } from "./styles"
 
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -7,11 +8,11 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const Button: React.FC<ButtonProps> = ({ title, ...rest }) => {
     return (
-        <button
+        <ChangePokemonButton
             {...rest}
         >
             {title}
-        </button>
+        </ChangePokemonButton>
     )
 }
 
