@@ -31,7 +31,14 @@ export const ButtonContainer = styled.div`
     left: -16rem;
 
     p {
-        color: #f6f6f6;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 9.4rem;
+        height: 3.7rem;
+        left: 0.3rem;
+        top: -0.4;
     }
 `;
 

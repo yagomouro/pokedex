@@ -1,15 +1,28 @@
 import styled from "styled-components";
 
 export const PokemonWrapper = styled.div`
-    width: max-content;
+    width: 100%;
     display: flex;
 `;
 
 export const PokemonImage = styled.img`
-    width: 13rem;
+    /* width: 12rem;
     position: absolute;
-    top: 10.5rem;
-    left: 10rem;
+    top: 11rem;
+    left: 10.5rem; */
+    width: 12rem;
+`;
+
+export const PokemonImageWrapper = styled.div`
+    width: 17.4rem;
+    height: 11.4rem;
+    position: absolute;
+    left: 8.3rem;
+    top: 11.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 `;
 
 export const DataWrapper = styled.div`
@@ -23,17 +36,32 @@ export const DataWrapper = styled.div`
 
 export const PokemonData = styled.span`
     width: max-content;
-    color: #f0f0f0;
     position: relative;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-wrap: break-word;
+
+    &.pokemonName {
+        width: 16.8rem;
+        height: 6rem;
+        top: -2.2rem;
+        left: -3.7rem;
+    }
+
+    &.pokemonType {
+        width: 8.1rem;
+        height: 3rem;
+    }
 `;
 
 export const DataType = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: space-between;
-    gap: 4rem;
+    gap: 1.7rem;
     position: relative;
-    left: -3rem;
-    top: 5.3rem;
-    font-size: 2rem;
+    left: -4.3rem;
+    top: 1.5rem;
 `;

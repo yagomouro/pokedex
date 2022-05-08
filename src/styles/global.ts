@@ -30,6 +30,7 @@ html{
 }
 
 body{
-    font-size: 2rem;
+    font-size: 1.8rem;
+    color: #f0f0f0;
 }
 `;
