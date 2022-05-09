@@ -15,11 +15,19 @@ export function PokemonList(): JSX.Element {
         previous: ""
     })
     const [offset, setOffset] = useState(0)
+    const [turnOff, setTurnOff] = useState(false)
 
     const incrementOffset = () => setOffset(prev => prev + 1)
-
-
     const decrementOffset = () => setOffset(prev => prev - 1)
+    const changePowerOnOff = () => {
+        if (turnOff) {
+            setTurnOff(false)
+            setOffset(0)
+        } else {
+            setTurnOff(true)
+
+        }
+    }
 
 
 
@@ -43,27 +51,36 @@ export function PokemonList(): JSX.Element {
         <PokedexContainer>
             <SvgPokedex />
             <PokemonInfo>
-                <CardContainer>
+                <CardContainer >
                     {allPokemons.results.map((pokemon, index) => (
                         <PokemonCard
                             key={index}
                             {...pokemon}
+                            turnOff={turnOff}
                         />
                     ))}
                 </CardContainer>
                 <ButtonContainer>
-                    <p>Nº {offset + 1}</p>
+                    {!turnOff && <p>Nº {offset + 1}</p>}
                     <ButtonWrapper>
                         <Button
                             title=""
-                            onClick={offset >= 1 ? decrementOffset : undefined}
-                            className={offset >= 1 ? "" : "disabled"}
+                            onClick={changePowerOnOff}
+                            className="offButton"
                         />
+
                         <Button
                             title=""
-                            onClick={offset <= 1124 ? incrementOffset : undefined}
-                            className={offset <= 1124 ? "" : "disabled"}
+                            onClick={offset >= 1 && !turnOff ? decrementOffset : undefined}
+                            className={offset >= 1 && !turnOff ? "" : "disabled"}
                         />
+
+                        <Button
+                            title=""
+                            onClick={offset <= 1124 && !turnOff ? incrementOffset : undefined}
+                            className={offset <= 1124 && !turnOff ? "" : "disabled"}
+                        />
+
                     </ButtonWrapper>
                 </ButtonContainer>
             </PokemonInfo>
