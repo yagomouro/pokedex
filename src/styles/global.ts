@@ -27,6 +27,16 @@ html{
     background-size: cover;
     background-position: center center;
     width: 100%;
+
+    @media screen and (max-width: 700px) {
+        font-size: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    @media screen and (max-width: 500px) {
+        font-size: 40%;
+    }
 }
 
 body{
