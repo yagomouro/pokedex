@@ -6,10 +6,6 @@ export const PokemonWrapper = styled.div`
 `;
 
 export const PokemonImage = styled.img`
-    /* width: 12rem;
-    position: absolute;
-    top: 11rem;
-    left: 10.5rem; */
     width: 12rem;
 `;
 

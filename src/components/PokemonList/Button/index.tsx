@@ -3,12 +3,13 @@ import { ChangePokemonButton } from "./styles"
 
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-    title: string
+    title: string,
 }
 
-const Button: React.FC<ButtonProps> = ({ title, ...rest }) => {
+const Button: React.FC<ButtonProps> = ({ className, title, ...rest }) => {
     return (
         <ChangePokemonButton
+            className={className}
             {...rest}
         >
             {title}

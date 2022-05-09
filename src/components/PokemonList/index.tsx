@@ -17,7 +17,11 @@ export function PokemonList(): JSX.Element {
     const [offset, setOffset] = useState(0)
 
     const incrementOffset = () => setOffset(prev => prev + 1)
+
+
     const decrementOffset = () => setOffset(prev => prev - 1)
+
+
 
     const getAllPokemons = useCallback(async () => {
         try {
@@ -42,21 +46,23 @@ export function PokemonList(): JSX.Element {
                 <CardContainer>
                     {allPokemons.results.map((pokemon, index) => (
                         <PokemonCard
-                            key={index.toString()}
+                            key={index}
                             {...pokemon}
                         />
                     ))}
                 </CardContainer>
                 <ButtonContainer>
-                    <p>Nº {offset}</p>
+                    <p>Nº {offset + 1}</p>
                     <ButtonWrapper>
                         <Button
                             title=""
-                            onClick={decrementOffset}
+                            onClick={offset >= 1 ? decrementOffset : undefined}
+                            className={offset >= 1 ? "" : "disabled"}
                         />
                         <Button
                             title=""
-                            onClick={incrementOffset}
+                            onClick={offset <= 1124 ? incrementOffset : undefined}
+                            className={offset <= 1124 ? "" : "disabled"}
                         />
                     </ButtonWrapper>
                 </ButtonContainer>
