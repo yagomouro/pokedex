@@ -1,1 +1,1 @@
-A pokedex app using React, Typescript, Styled Components and Axios and the PokeAPI
+A pokedex app using React, Typescript, Styled Components, Axios and the PokeAPI
